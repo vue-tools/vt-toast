@@ -1,7 +1,8 @@
 'use strict';
 
 function plugin(Vue, Toast) {
-    var component = void 0,
+    var Component = void 0,
+        component = void 0,
         container = void 0,
         propsData = void 0;
 
@@ -11,9 +12,10 @@ function plugin(Vue, Toast) {
         visible: false
     };
 
+    Component = Vue.extend(Toast);
     container = document.createElement('div');
     document.getElementsByTagName('body')[0].appendChild(container);
-    component = new Toast({
+    component = new Component({
         propsData: propsData
     }).$mount(container);
 

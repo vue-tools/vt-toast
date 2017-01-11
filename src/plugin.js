@@ -1,5 +1,5 @@
 function plugin(Vue, Toast) {
-    let component, container, propsData
+    let Component, component, container, propsData
 
     propsData = {
         type: '',
@@ -7,9 +7,10 @@ function plugin(Vue, Toast) {
         visible: false
     }
 
+    Component = Vue.extend(Toast)
     container = document.createElement('div')
     document.getElementsByTagName('body')[0].appendChild(container)
-    component = new Toast({
+    component = new Component({
         propsData
     }).$mount(container)
 
