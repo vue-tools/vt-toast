@@ -43,7 +43,7 @@
                             <svg version="1.1" class="ui-toast__icon ui-toast__icon--warn" viewBox="0 0 200 200" v-show={this.type == 'warn'}>
                                 <path fill="#ffffff" d="M100 153.3c8.6 0 15.5 6.9 15.5 15.5s-6.9 15.5-15.5 15.5-15.5-6.9-15.5-15.5 6.9-15.5 15.5-15.5zm8.7-13.9H91.3c-2.1 0-2.3-1.8-2.3-4L87.4 33.6c0-2.1 1.7-3.9 3.9-3.9h17.4c2.1 0 3.9 1.7 3.9 3.9L111 135.4c0 2.1-.2 4-2.3 4z" />
                             </svg>
-                            <p class={{ "ui-toast__text": true, "ui-toast__text--tip": type }}>{this.text}</p>
+                            <p class={{ "ui-toast__text": true, "ui-toast__text--tip": this.type }}>{this.text}</p>
                         </div>
                     </div>
                 </transition>
