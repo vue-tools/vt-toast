@@ -15,6 +15,7 @@ function plugin(Vue, Toast) {
     }).$mount(container)
 
     function method({ type = '', text, time = 2000, hide = function () {} }) {
+        
         if (['success', 'error', 'warn'].indexOf(type) === -1) {
             type = ''
         }
@@ -33,7 +34,7 @@ function plugin(Vue, Toast) {
                     hide()
                 }
             } 
-        });
+        })
     }
 
     Vue.toast = method
