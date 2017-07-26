@@ -14,33 +14,26 @@ function plugin(Vue, Toast) {
         propsData
     }).$mount(container)
 
-    function method(type, text, time) {
-        if (typeof text === 'number') {
-            time = text
-            text = ''
-        }
-
+    function method({ type = '', text, time = 2000, hide = function () {} }) {
+        
         if (['success', 'error', 'warn'].indexOf(type) === -1) {
-            text = type
             type = ''
         }
-
-        if (time) {
-            component.time = time
-        } else {
-            component.time = 2000
-        }
-
-        if (type) {
-            component.type = type
-        } else {
-            component.type = ''
-        }
-
-        component.text = text
-        component.visible = true
-        component.$on('hide', () => {
-            component.visible = false
+        
+        Object.assign(component, {
+            type,
+            text,
+            time,
+            visible: true
+        })
+        
+        component.$on('hide', function () {
+            if (component.visible) {
+                component.visible = false
+                if (typeof hide === 'function') {
+                    hide()
+                }
+            } 
         })
     }
 
